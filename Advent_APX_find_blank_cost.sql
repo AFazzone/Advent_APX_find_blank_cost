@@ -1,10 +1,10 @@
 SELECT  t.Quantity, t.TradeDate, t.SecTypeCode1, s.Symbol, b.PortfolioManager, b.Custodian, b.AccountNumber
 FROM dbo.AdvPortfolioTransaction T 
-Inner Join dbo.AdvSecurity  s
+INNER Join dbo.AdvSecurity  s
 	ON	s.SecurityID = t.SecurityID1
 INNER JOIN dbo.AdvPortfolioBase p
        ON P.PortfolioBaseID = T.PortfolioID    
-Inner Join dbo.AdvPortfolioBaseExt b
+INNER Join dbo.AdvPortfolioBaseExt b
 		ON p.PortfolioBaseID = b.PortfolioBaseID
 WHERE TransactionCode IN ('li','ti')
 AND T.SecTypeCode1 != 'ca'
